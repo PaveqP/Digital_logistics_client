@@ -1,0 +1,72 @@
+@import '../../styles/variables.scss';
+
+.routescard{
+    background-color: white;
+    width: 435px;
+    padding: 20px;
+    border-radius: 30px;
+    margin: 20px;
+    margin-left: 0;
+}
+
+
+@media(max-width: 470px){
+    .routescard{
+        width: 350px;
+    }
+}
+
+@media(max-width: 390px){
+    .routescard{
+        width: 300px;
+    }
+}
+
+.routescard__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-title{
+        font-family: $font;
+        color: $secondary-color;
+        font-size: 14px;
+        line-height: 17.5px;
+    }
+
+    &-percents{
+        font-family: $font;
+        color: $hover-color;
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+.routescard__count{
+    font-family: $font;
+    color: $hover-color;
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 700;
+}
+
+.routescard__plan-title{
+    font-family: $font;
+    color: $secondary-color;
+    font-size: 14px;
+    line-height: 17.5px;
+    margin-top: 10px;
+}
+
+.routescard__plan-count{
+    font-family: $font;
+    color: $primary-color;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.routescard__chart{
+
+}

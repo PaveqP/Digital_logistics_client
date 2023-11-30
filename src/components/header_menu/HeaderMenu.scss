@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+
+.headermenu{
+
+}
+
+.headermenu__row{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_logo{
+
+    }
+
+    &-version{
+        font-family: $font;
+        color: $secondary-color;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+    }
+}

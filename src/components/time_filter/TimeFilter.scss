@@ -1,0 +1,40 @@
+@import '../../styles/variables.scss';
+
+.timefilter{
+    margin-top: 5px;
+}
+
+.timefilter__row{   
+    display: flex;
+
+    &-button{
+        font-family: $font;
+        background-color: rgba( #D9D9D9, $alpha: 0.0);
+        color: $blue-color;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 10px;
+        margin-right: 10px;
+    }
+
+    &-button:hover{
+        color: $hover-color;
+    }
+
+    &-button:active{
+        color: $primary-color;
+        background-color: rgba($secondary-color, $alpha: 0.2);
+        border-radius: 10px;
+    }
+}
+
+@media(max-width: 830px){
+    .timefilter__row-button{
+        margin-right: 5px;
+    }
+
+    .timefilter{
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba($secondary-color, $alpha: 0.2);
+    }
+}

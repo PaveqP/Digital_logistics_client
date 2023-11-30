@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# СПИСОК ПРОЕЗДОВ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Инструкция по запуску и эксплуатации проекта
 
-## Available Scripts
+-----------------------------------------------------
 
-In the project directory, you can run:
+**Подготовка к запуску проекта**
+Проект собран с использованием React, для его запуска потребуется установить пакетный менеджер **![npm](https://www.npmjs.com/)** или **![yarn](https://yarnpkg.com/)**. Также потребуется наличие **![Node.js](https://nodejs.org/ru)**
 
-### `npm start`
+**Настройка проекта**
+- Откройте директорию проекта в IDE 
+- Откройте терминал и перейдите в директорию проекта
+- Инициализируйте пакетный менеджер, введя в терминал ```npm init``` для **npm**. После этого в корне каталога с проектом должна появится папка node_moduls. Если папка node_moduls Уже была в каталоге, этот шаг можно пропустить 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Установка зависимостей**
+В проекте используется ряд зависимостей, которые необходимо дополнительно установить для локального запуска:
+- Установка **scss**: ```npm install sass --save-dev``` для **npm**.
+- Установка **chartjs**: ```npm install --save chart.js react-chartjs-2``` для **npm**.
+- Установка **react-router-dom**: ```npm install react-router-dom``` для **npm**.
+- Установка **faker**: ```npm install @faker-js/faker --save-dev``` для **npm**.
+Остальные зависимости будут установлены автоматически после использования ```npm init```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Запуск проекта**
+- ```npm start``` для **npm**. Проект будет запущен локально в окне браузера, выбранного по умолчанию. Сборка при этом происходит автоматически и не требует дополнительной настройки.
+В проекте используется асинхронный запрос JSON-файла **GetRideData.js**. Чтобы тестировать проект локально, необходимо закомментировать асинхронный запрос и раскомментировать запрос к локальному файлу. В противном случае при запуске тестового сервера будет возникать cors-ошибка запроса и данные не появятся.
 
-### `npm test`
+**Актуальные версии зависимостей проекта**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "chart.js": "^4.3.1",
+    "node-sass": "^7.0.3",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "5.0.1",
+    "sass": "^1.63.6",
+    "scss": "^0.2.4",
+    "web-vitals": "^2.1.4"
+    "@faker-js/faker": "^8.0.2"
 
-### `npm run build`
+## Архитектура проекта
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+В проекте используется классическая модульная архитектура:
+- **components** : минимальные логические компоненты страницы
+- **data** : JSON-файл с данными о поездках, которые передаются в компоненты и выводятся на страницу
+- **moduls** : крупные логические элементы страницы
+- **requests** : Логика запросов данных из **data**. В дальнейшем из api
+- **root** : корневой компонент App.jsx
+- **styles** : переменные и шаблоны **scss**, которые используются в проекте
+- **ui** : небольшие визуальные компоненты с отутствием логики (кнопки, иконки) и картинки, которые статически используются в вёрстке
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

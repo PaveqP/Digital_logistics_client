@@ -1,0 +1,84 @@
+@import "../../styles/variables.scss";
+
+.excelexport{
+    background-color: $blue-color;
+    border-radius: 10px;
+}
+
+.excelexport:hover{
+    background-color: $hover-color;
+}
+
+.excelexport__row{
+    display: flex;
+    align-items: center;
+    padding: 5px 20px 5px 20px;
+
+
+    &-image{
+
+    }
+
+    &-text{
+        font-family: $font;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 400;
+        margin-left: 5px;
+    }
+}
+
+@media(max-width: 830px){
+
+    .excelexport{
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .excelexport__row{
+        justify-content: center;
+    }
+}
+
+//-------------BIG------------------//
+
+.bigexcelexport{
+    background-color: $blue-color;
+    border-radius: 10px;
+}
+
+
+
+.bigexcelexport:hover{
+    background-color: $hover-color;
+}
+
+.bigexcelexport__row{
+    display: flex;
+    align-items: center;
+    padding: 5px 20px 5px 20px;
+
+
+    &-image{
+
+    }
+
+    &-text{
+        font-family: $font;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 400;
+        margin-left: 5px;
+    }
+}
+
+@media(max-width: 830px){
+    .bigexcelexport{
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .bigexcelexport__row{
+        justify-content: center;
+    }
+}

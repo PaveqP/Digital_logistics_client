@@ -1,0 +1,349 @@
+@import '../../styles/variables.scss';
+
+.authform{
+    margin-top: 40px;
+    margin-left: 90px;
+    margin-right: 110px;
+}
+
+.authform__login{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+    &-title{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+        margin-right: 10px;
+    }
+
+    &-input{
+        margin-left: 20px;
+        width: 220px;
+        font-family: $font;
+        font-size: 16px;
+        padding: 4px 10px 6px 10px;
+        line-height: 20px;
+        background-color: rgba($color: $background, $alpha: 0.2);
+        color: $background;
+        margin-bottom: 10px;
+    }
+
+    &-help{
+        font-family: $font;
+        font-size: 16px;
+        color: $blue-color;
+        margin-left: 10px;
+    }
+}
+
+.authform__password{
+    display: flex;
+    align-items: center;
+
+    &-title{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+    }
+
+    &-input{
+        margin-left: 0px;
+        width: 220px;
+        font-family: $font;
+        font-size: 16px;
+        padding: 4px 10px 6px 10px;
+        line-height: 20px;
+        background-color: rgba($color: $background, $alpha: 0.2);
+        color: $background;
+    }
+
+    
+}
+
+.authform__enter{
+    margin-top: 10px;
+    margin-bottom: 70px;
+    margin-left: 90px;
+    height: 30px;
+    width: 220px;
+    color: white;
+    font-family: $font;
+    font-size: 16px;
+    line-height: 20px;
+    background-color: $blue-color;
+    border-radius: 10px;
+}
+
+//-----------REGFORM------------------//
+
+.regform{
+    margin-top: 40px;
+    margin-left: 90px;
+    margin-right: 110px;
+}
+
+.regform__name{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &-title{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    &-input{
+        width: 100%;
+        font-family: $font;
+        font-size: 16px;
+        padding: 4px 10px 6px 10px;
+        line-height: 20px;
+        background-color: rgba($color: $background, $alpha: 0.2);
+        color: $background;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        
+    }
+
+    &-help{
+        font-family: $font;
+        font-size: 16px;
+        color: $blue-color;
+        
+    }
+}
+
+.regform__surname{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &-title{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    &-input{
+        width: 100%;
+        font-family: $font;
+        font-size: 16px;
+        padding: 4px 10px 6px 10px;
+        line-height: 20px;
+        background-color: rgba($color: $background, $alpha: 0.2);
+        color: $background;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    &-help{
+        font-family: $font;
+        font-size: 16px;
+        color: $blue-color;
+        
+    }
+}
+
+.regform__login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &-title{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    &-input{
+        width: 100%;
+        font-family: $font;
+        font-size: 16px;
+        padding: 4px 10px 6px 10px;
+        line-height: 20px;
+        background-color: rgba($color: $background, $alpha: 0.2);
+        color: $background;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    &-help{
+        font-family: $font;
+        font-size: 16px;
+        color: $blue-color;
+        margin-left: 10px;
+    }
+}
+
+.regform__password{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &-title{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+        margin-bottom: 5px;
+    }
+
+    &-input{
+        width: 100%;
+        font-family: $font;
+        font-size: 16px;
+        padding: 4px 10px 6px 10px;
+        line-height: 20px;
+        background-color: rgba($color: $background, $alpha: 0.2);
+        border-radius: 10px;
+        color: $background;
+    }
+}
+
+.regform__mail{
+    display: flex;
+    align-items: center;
+
+    &-title{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+        margin-right: 40px;
+    }
+
+    &-input{
+        margin-left: 0px;
+        width: 220px;
+        font-family: $font;
+        font-size: 16px;
+        padding: 4px 10px 6px 10px;
+        line-height: 20px;
+        background-color: rgba($color: $background, $alpha: 0.2);
+        color: $background;
+    }
+}
+
+.regform__check{
+    display: flex;
+    align-items: center;
+    margin-left: 85px;
+    margin-top: 10px;
+
+    &-title{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+    }
+
+    &-input{
+        margin-right: 10px;
+    }
+}
+
+.regform__enter{
+    margin-top: 16px;
+    margin-bottom: 70px;
+    
+    height: 30px;
+    width: 220px;
+    color: white;
+    font-family: $font;
+    font-size: 16px;
+    line-height: 20px;
+    background-color: $blue-color;
+    border-radius: 10px;
+}
+
+@media(max-width: 640px){
+    .authform{
+        margin-top: 40px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .regform{
+        margin-top: 40px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .authform__login{
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .authform__password{
+        margin-left: 0;
+        margin-right: 0;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .regform__login{
+        margin-left: 0;
+        margin-right: 0;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .regform__password{
+        margin-left: 0;
+        margin-right: 0;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .regform__mail{
+        margin-left: 0;
+        margin-right: 0;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .regform__enter{
+        margin-left: 0px;
+    }
+    
+    .authform__enter{
+        margin-left: 0px;
+    }
+
+    .regform__check{
+        margin-left: 0px;
+    }
+
+    .authform__login-input{
+        margin-left: 0;
+    }
+
+    .regform__login-input{
+        margin-left: 0;
+    }
+
+    .authform__login-title{
+        margin-bottom: 10px;
+    }
+
+    .regform__login-title{
+        margin-bottom: 10px;
+    }
+}

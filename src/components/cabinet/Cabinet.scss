@@ -1,0 +1,94 @@
+@import '../../styles/variables.scss';
+
+.cabinet{
+    padding-top: 20px;
+    
+}   
+
+@media(max-width: 830px){
+    .cabinet{
+        display: none;
+    }
+}
+
+.cabinet__row{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.cabinet__row-avatar{
+    margin-right: 15px;
+}
+
+.cabinet__row-avatar-image{
+    transform: scale(1.2);
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+.cabinet__row-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.cabinet__row-info-base{
+    
+    display: flex;
+    align-items: center;
+
+    &-text{
+        font-family: $font;
+        font-size: 16px;
+        color: $primary-color;
+    }
+
+    &-text:hover{
+        color: $hover-color;
+        cursor: pointer;
+    }
+}
+
+.cabinet__row-info-base-images{
+    &-default{
+
+    }
+
+    &-hover{
+        display: none;
+    }
+
+    &:hover{
+        .cabinet__row-info-base-images-default{
+            display: none;
+        }
+        .cabinet__row-info-base-images-hover{
+            display: inline;
+        }
+    }
+}
+
+.cabinet__row-info-time{
+    font-family: $font;
+    color: $secondary-color;
+    font-size: 12px;
+}
+
+.cabinet__row-actions{
+    display: flex;
+    align-items: center;
+    margin-left: 60px;
+
+    &-notify{
+
+    }
+
+    &-logout{
+        
+    }
+}
+
+.action_button{
+
+}

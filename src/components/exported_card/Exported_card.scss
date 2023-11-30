@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+
+.exportedcard{
+    background-color: white;
+    width: 435px;
+    padding: 20px;
+    border-radius: 30px;
+    margin: 20px 0;
+    margin-left: 0;
+}
+
+@media(max-width: 470px){
+    .exportedcard{
+        width: 350px;
+    }
+}
+
+@media(max-width: 390px){
+    .exportedcard{
+        width: 300px;
+    }
+}
+
+.exportedcard__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-title{
+        font-family: $font;
+        color: $secondary-color;
+        font-size: 14px;
+        line-height: 17.5px;
+    }
+
+    &-percents{
+        font-family: $font;
+        color: $hover-color;
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+.exportedcard__count{
+    font-family: $font;
+    color: $hover-color;
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 700;
+}
+
+.exportedcard__plan-title{
+    font-family: $font;
+    color: $secondary-color;
+    font-size: 14px;
+    line-height: 17.5px;
+    margin-top: 10px;
+}
+
+.exportedcard__plan-count{
+    font-family: $font;
+    color: $primary-color;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.exportedcard__chart{
+
+}

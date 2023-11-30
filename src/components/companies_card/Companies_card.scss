@@ -1,0 +1,114 @@
+@import '../../styles/variables.scss';
+
+.companiescard{
+    background-color: rgba(23, 123, 179, 0.10);
+    border-radius: 20px;
+    margin: 20px 0px;
+    margin-left: 0;
+    width: 900px;
+}
+
+.companiescard__row{
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+.companiescard__row-company{
+    display: flex;
+    flex-direction: column;
+
+    &-title{
+        font-family: $font;
+        font-size: 14px;
+        line-height: 17.5px;
+        color: $primary-color;
+        padding: 20px;
+        border-top-left-radius: 20px;
+        
+    }
+
+    &-name{
+        font-family: $font;
+        padding: 20px;
+        width: 282.5px;
+        background-color: white;
+        box-shadow: 40px 0 white
+    }
+}
+
+.companiescard__row-transits{
+    display: flex;
+    flex-direction: column;
+
+    &-title{
+        font-family: $font;
+        font-size: 14px;
+        line-height: 17.5px;
+        color: $primary-color;
+        padding: 20px 0px;
+    }
+
+    &-name{
+        font-family: $font;
+        padding: 20px 0px;
+        width: 183.75px;
+        background-color: white;
+        box-shadow: 40px 0 white
+    }
+}
+
+.companiescard__row-exported{
+    display: flex;
+    flex-direction: column;
+    
+
+    &-title{
+        font-family: $font;
+        font-size: 14px;
+        line-height: 17.5px;
+        color: $primary-color;
+        padding: 20px;
+    }
+
+    &-name{
+        font-family: $font;
+        padding: 20px;
+        width: 183.75px;
+        background-color: white;
+        box-shadow: 40px 0 white
+    }
+}
+
+.companiescard__row-day{
+    display: flex;
+    flex-direction: column;
+
+    &-title{
+        font-family: $font;
+        font-size: 14px;
+        line-height: 17.5px;
+        color: $primary-color;
+        padding: 20px 0px;
+        padding-right: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    &-name{
+        font-family: $font;
+        padding: 20px 0px;
+        padding-right: 20px;
+        width: 183.75px;
+        background-color: white;
+        
+    }
+}
+
+@media(max-width: 1310px){
+    .companiescard{
+        
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        width: 100%;
+    }
+}

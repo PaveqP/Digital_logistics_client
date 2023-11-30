@@ -1,0 +1,144 @@
+@import '../../styles/variables.scss';
+
+.ridelistsctruct{
+    padding-bottom: 20px;
+    border-bottom: 1px solid $secondary-color;
+}
+
+.ridelistsctruct_sctucture{
+    margin-top: 50px;
+    margin-left: 10px;
+    
+    align-items: center;
+    display: flex;
+    
+    justify-content: space-between;
+
+    &-id{
+        width: 20px;
+    }
+
+    &-number{
+        width: 85px;
+    }
+
+    &-entry{
+        width: 70px;
+    }
+
+    &-exit{
+        width: 85px;
+    }
+
+    &-duration{
+        width: 120px;
+    }
+
+    &-weight{
+        width: 75px;
+    }
+
+    &-volume{
+        width: 90px;
+    }
+
+    &-road{
+        width: 65px;
+    }
+
+    &-photo{
+        
+    }
+
+    &-filter{
+        
+    }
+}
+
+.element{
+    font-family: $font;
+    color: $secondary-color;
+    
+}
+
+.ridelistfilter{
+    position: absolute;
+    border-radius: 20px;
+    padding: 30px;
+    background-color: $background;
+    top: 25%;
+    left: 35%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+
+    &__title{
+        font-family: $font;
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    &__description{
+        font-family: $font;
+        font-size: 16px;
+        line-height: 30px;
+        border-bottom: 1px solid $blue-color;
+    }
+
+    &__close{
+        cursor: pointer;
+        margin-bottom: 20px;
+        width: 20px;
+        align-self: flex-end;
+    }
+}
+
+.ridelistfilter__inputrow{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    align-items: center;
+
+    &-element{
+        display: flex;
+        font-family: $font;
+        font-size: 14px;
+        line-height: 30px;
+        align-self: flex-start;
+        
+    }
+
+    &-input{
+        margin-right: 10px;
+    }
+
+    &-submit{
+        cursor: pointer;
+        margin-top: 20px;
+        align-self: center;
+        padding: 5px 20px;
+        border-radius: 10px;
+        background-color: $blue-color;
+        color: white;
+        font-family: $font;
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
+
+
+@media(max-width: 1320px){
+    .ridelistsctruct_sctucture{
+        gap: 0px;
+    }
+}
+
+@media(max-width: 1024px){
+    .ridelistsctruct{
+        display: none;
+    }
+}
+
+

@@ -1,0 +1,78 @@
+@import '../../styles/variables.scss';
+
+.addroute{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.addroute__button{
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: $background;
+    border-radius: 10px;
+    font-family: $font;
+}
+
+.addroute__button:hover{
+    background-color: $background;
+    color: $hover-color;
+}
+
+.addroute__form{
+    position: absolute;
+    left: 44%;
+    top: 12%;
+    background-color: $background;
+    padding: 30px 50px;
+    border-radius: 20px;
+
+    &-close{
+        margin-bottom: 40px;
+        margin-left: 95%;
+        cursor: pointer;
+    }
+}
+
+.addroute__form-form{
+
+    display: flex;
+    flex-direction: column;
+    font-family: $font;
+
+    &-title{
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-family: $font;
+    }
+
+    &-separator{
+        width: 100%;
+        height: 5px;
+        background-color: $blue-color;
+        margin-bottom: 30px;
+    }
+
+    &-input{
+        margin-bottom: 15px;
+        font-family: $font;
+        margin-top: 5px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    &-send{
+        margin-top: 15px;
+        font-family: $font;
+        font-size: 14px;
+        padding: 10px 20px;
+        background-color: $blue-color;
+        border-radius: 10px;
+        color: white;
+    }
+
+    &-send:hover{
+        background-color: $blue-color;
+        color: $hover-color;
+    }
+
+}

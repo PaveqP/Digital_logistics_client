@@ -1,0 +1,14 @@
+.notification{
+    width: 40px;
+    height: 40px;
+    background-color: #DADADA;
+    border-radius: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.notification__image{
+    margin-left: 4.5px;
+    margin-top: 5px;
+    transform: scale(0.8);
+}

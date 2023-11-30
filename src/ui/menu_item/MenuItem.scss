@@ -1,0 +1,40 @@
+@import '../../styles/variables.scss';
+
+.menuitem{
+    
+}
+
+.menuitem__row-image{
+    cursor: pointer;
+}
+
+.menuitem__row-title{
+    font-family: $font;
+    color: $primary-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.menuitem__row-active{
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+}
+
+.menuitem__row-available{
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.menuitem__row-disable{
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+    opacity: 0.2;
+}
