@@ -59,6 +59,7 @@ function App() {
         {!isAuth ?
           <Routes>
             <Route path="/" element={<Auth_page/>} />
+            <Route path="/analytics" element={<Auth_page/>} />
           </Routes>
 
           :

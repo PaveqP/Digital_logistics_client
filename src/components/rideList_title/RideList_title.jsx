@@ -12,8 +12,11 @@ import { Link } from 'react-router-dom'
 import { AddRouteForm } from '../addRouteForm/AddRouteForm'
 
 import './RideList_title.scss'
+import { useSelector } from 'react-redux'
 
 function RideList_title({adaptive, setAdaptive, timeInterval, setTimeInterval, showFilter, setShowFilter}) {
+
+    const user = useSelector(state => state.user.currentUser)
 
   return (
     <div className="rideListTitle" >
@@ -49,19 +52,17 @@ function RideList_title({adaptive, setAdaptive, timeInterval, setTimeInterval, s
                     <section className="rideListTitle__cabinet">
                         <section className="rideListTitle__row-burger">
                             <div className="rideListTitle__row-avatar">
-                                <img src={require('../../ui/images/avatar.png')} alt="#" />
+                                <img src={require('../../ui/images/user.png')} alt="#" />
                             </div>
                             <article className="rideListTitle__row-info">
                                 <div className="rideListTitle__row-info-base">
-                                    <p className="rideListTitle__row-info-base-text"> Анастасия Великая </p>
+                                    <p className="rideListTitle__row-info-base-text"> {user.name} {user.surname} </p>
                                     <div className="rideListTitle__row-info-base-images">
                                         <img className="rideListTitle__row-info-base-images-default" src={require('../../ui/images/Profile_button.png')} alt="#" />
                                         <img className="rideListTitle__row-info-base-images-hover" src={require('../../ui/images/Profile_button_hover.png')} alt="#" />
                                     </div>
                                 </div>
-                                <div className="rideListTitle__row-info-time">
-                                    45 минут назад
-                                </div>
+
                             </article>
                         </section>
                         <div className="rideListTitle__burger-open-buttons">

@@ -100,11 +100,9 @@ function RideList_sctruct({showConfig, setShowConfig, showFilter, setShowFilter}
                     Маршрут
                 </div>
             }
-            {photoChecked &&
                 <div className="ridelistsctruct_sctucture-photo element">
-                    Фото
+                    Действия
                 </div>
-            }
         </section>
         }
         {!photoChecked &&
@@ -149,11 +147,9 @@ function RideList_sctruct({showConfig, setShowConfig, showFilter, setShowFilter}
                     Маршрут
                 </div>
             }
-            {photoChecked &&
                 <div className="ridelistsctruct_sctucture-photo element">
-                    Фото
+                    Действия
                 </div>
-            }
         </section>
         }
         { showFilter &&
@@ -247,16 +243,6 @@ function RideList_sctruct({showConfig, setShowConfig, showFilter, setShowFilter}
                         checked={roadChecked}
                         onChange={() => handleRoadChange()}
                     />Маршрут
-                </p>
-                <p className="ridelistfilter__inputrow-element">
-                    <input 
-                        className="ridelistfilter__inputrow-input" 
-                        name='checkfilter' 
-                        type="checkbox" 
-                        value='photo' 
-                        checked={photoChecked}
-                        onChange={() => handlePhotoChange()}
-                    />Фото
                 </p>
                 <p>
                     <input 

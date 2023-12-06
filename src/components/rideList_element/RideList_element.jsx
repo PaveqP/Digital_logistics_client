@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Edit } from '../../ui/edits/Edit'
+import { Delete } from '../../ui/edits/Delete'
 
 import './RideList_element.scss'
 
@@ -18,8 +20,9 @@ function RideList_element(props) {
             photo, 
             loading,
             showConfig,
-            highlighted,
-			volume_count
+			volume_count,
+			exit_city,
+			enter_city
         } = props
 
     const [popup1, setPopup1] = useState(false)
@@ -55,7 +58,7 @@ function RideList_element(props) {
     }
 
   return (
-		<div className={`ridelistelement ${highlighted ? 'highlighted' : ''}`}>
+		<div className={`ridelistelement`}>
 			<section className='ridelistelement_sctucture'>
 				{showConfig.id && (
 					<div className='ridelistelement_sctucture-id data'>{id}</div>
@@ -89,12 +92,7 @@ function RideList_element(props) {
 				{showConfig.volume && (
 					<>
 						<div className='ridelistelement_sctucture-volume data'>
-							<img
-								src={require('../../ui/images/volume_preview.png')}
-								alt='показать'
-								onClick={() => setShowVolume(!showVolume)}
-							/>
-							<p>{volume_count}</p>
+							<div className='ridelistelement_sctucture-volume-count'>{volume_count}</div>
 						</div>
 						{showVolume && (
 							<div className='ridelistelement_sctucture-volume-preview'>
@@ -116,141 +114,20 @@ function RideList_element(props) {
 				{showConfig.road && (
 					<>
 						<div className='ridelistelement_sctucture-road data'>
-							<button
-								className='ridelistelement_sctucture-road-button'
-								onClick={() => setShowRoad(!showRoad)}
-							>
-								Показать
+							<button className='ridelistelement_sctucture-road-button'>
+								{exit_city}
+							</button>
+							<button className='ridelistelement_sctucture-road-button'>
+								{enter_city}
 							</button>
 						</div>
-						{showRoad && (
-							<div className='ridelistelement_sctucture-road-popup'>
-								<div className='ridelistelement_sctucture-road-popup-structure'>
-									<div className='ridelistelement_sctucture-road-popup-photo'>
-										{!updateRoad ? (
-											<img
-												src={
-													getRoutes(road)
-														? getRoutes(road)[0]
-														: require('../../ui/images/route-placeholder.png')
-												}
-												alt=''
-											/>
-										) : (
-											<img
-												src={
-													getRoutes(road)
-														? getRoutes(road)[1]
-														: require('../../ui/images/route-placeholder.png')
-												}
-												alt=''
-											/>
-										)}
-									</div>
-									<div className='ridelistelement_sctucture-road-popup-buttons'>
-										<button
-											className='ridelistelement_sctucture-road-popup-button'
-											onClick={() => setUpdateRoad(true)}
-										>
-											Актуализировать
-										</button>
-										<button
-											className='ridelistelement_sctucture-road-popup-button'
-											onClick={() => setUpdateRoad(false)}
-										>
-											Предыдущий
-										</button>
-										<button
-											className='ridelistelement_sctucture-road-popup-button'
-											onClick={() => setShowRoad(false)}
-										>
-											Закрыть
-										</button>
-									</div>
-								</div>
-							</div>
-						)}
+
 					</>
 				)}
-				{showConfig.photo && (
 					<div className='ridelistelement_sctucture-photos data'>
-						<img
-							className='ridelistelement_sctucture-photo'
-							src={
-								getPhotos(photo)
-									? getPhotos(photo)[0]
-									: require('../../ui/images/placeholder.png')
-							}
-							alt='image'
-							loading='lazy'
-							height='60'
-							width='90'
-							onClick={() => setPopup1(true)}
-						/>
-
-						<img
-							className='ridelistelement_sctucture-photo'
-							src={
-								getPhotos(photo)
-									? getPhotos(photo)[1]
-									: require('../../ui/images/placeholder.png')
-							}
-							alt='image'
-							loading='lazy'
-							height='60'
-							width='90'
-							onClick={() => setPopup2(true)}
-						/>
-						{popup1 && (
-							<section className='popup__image'>
-								<img
-									className='ridelistelement__sctucture-photo-popup-icon'
-									src={require('../../ui/images/popup.png')}
-									onClick={() => setPopup1(false)}
-									alt='image'
-									loading='lazy'
-								></img>
-								<img
-									className='ridelistelement__sctucture-photo-popup'
-									src={
-										getPhotos(photo)
-											? getPhotos(photo)[0]
-											: require('../../ui/images/placeholder.png')
-									}
-									alt='image'
-									id='popup'
-									loading='lazy'
-									height='480'
-									width='750'
-								/>
-							</section>
-						)}
-						{popup2 && (
-							<section className='popup__image'>
-								<img
-									className='ridelistelement__sctucture-photo-popup-icon'
-									src={require('../../ui/images/popup.png')}
-									onClick={() => setPopup2(false)}
-									alt='image'
-									loading='lazy'
-								></img>
-								<img
-									className='ridelistelement__sctucture-photo-popup'
-									src={
-										getPhotos(photo)
-											? getPhotos(photo)[1]
-											: require('../../ui/images/placeholder.png')
-									}
-									alt='image'
-									id='popup'
-									loading='lazy'
-									height='480'
-									width='750'
-								/>
-							</section>
-						)}
+						<Edit id={id}/>
+						<Delete id={id}/>
 					</div>
-				)}
 			</section>
 
 			<section className='ridelistelement__adaptive-sctucture'>
@@ -293,11 +170,7 @@ function RideList_element(props) {
 								Объем, в м3
 							</p>
 							<p className='idelistelement__adaptive-sctucture-row-volume-info adaptiveData'>
-								<img
-									src={require('../../ui/images/volume_preview.png')}
-									alt='показать'
-									onClick={() => setShowVolume(!showVolume)}
-								/>
+								{volume_count}
 							</p>
 						</div>
 						{showVolume && (
@@ -313,12 +186,13 @@ function RideList_element(props) {
 				)}
 				{showConfig.road && (
 					<div className='idelistelement__adaptive-sctucture-row-road'>
-						<p className='idelistelement__adaptive-sctucture-row-road-title adaptiveTitle'>
-							Маршрут
-						</p>
-						<p className='idelistelement__adaptive-sctucture-row-road-info adaptiveData'>
-							{road}
-						</p>
+						<button className='ridelistelement_sctucture-road-button'>
+							{exit_city}
+						</button>
+						
+						<button className='ridelistelement_sctucture-road-button'>
+							{enter_city}
+						</button>
 					</div>
 				)}
 				<div className='ridelistelement__adaptive-sctucture-date'>
@@ -357,84 +231,10 @@ function RideList_element(props) {
 						({duration})
 					</div>
 				)}
-				{showConfig.photo && (
 					<div className='ridelistelement__adaptive-sctucture-photos'>
-						<img
-							className='ridelistelement__adaptive-sctucture-photo'
-							src={
-								getPhotos(photo)
-									? getPhotos(photo)[0]
-									: require('../../ui/images/placeholder.png')
-							}
-							alt='image'
-							loading='lazy'
-							onClick={() => setPopup1(true)}
-							height='100'
-							width='160'
-						/>
-						<img
-							className='ridelistelement__adaptive-sctucture-photo'
-							src={
-								getPhotos(photo)
-									? getPhotos(photo)[1]
-									: require('../../ui/images/placeholder.png')
-							}
-							alt='image'
-							loading='lazy'
-							height='100'
-							width='160'
-							onClick={() => setPopup2(true)}
-						/>
-						{popup1 && (
-							<section className='popup__image'>
-								<img
-									className='ridelistelement__adaptive-sctucture-photo-popup-icon'
-									src={require('../../ui/images/popup.png')}
-									onClick={() => setPopup1(false)}
-									alt='image'
-									loading='lazy'
-								></img>
-								<img
-									className='ridelistelement__adaptive-sctucture-photo-popup'
-									src={
-										getPhotos(photo)
-											? getPhotos(photo)[0]
-											: require('../../ui/images/placeholder.png')
-									}
-									alt='image'
-									id='popup'
-									loading='lazy'
-									height='188'
-									width='299'
-								/>
-							</section>
-						)}
-						{popup2 && (
-							<section className='popup__image'>
-								<img
-									className='ridelistelement__adaptive-sctucture-photo-popup-icon'
-									src={require('../../ui/images/popup.png')}
-									onClick={() => setPopup2(false)}
-									alt='image'
-									loading='lazy'
-								></img>
-								<img
-									className='ridelistelement__adaptive-sctucture-photo-popup'
-									src={
-										getPhotos(photo)
-											? getPhotos(photo)[1]
-											: require('../../ui/images/placeholder.png')
-									}
-									alt='image'
-									id='popup'
-									loading='lazy'
-									height='188'
-									width='299'
-								/>
-							</section>
-						)}
+						<Edit id={id}/>
+						<Delete id={id}/>
 					</div>
-				)}
 			</section>
 		</div>
 	);

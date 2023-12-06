@@ -12,6 +12,8 @@ function RegForm() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
 
+    const [showPass, setShowPass] = useState(false)
+
     console.log(surname)
 
     const registrationSend = (name, surname, email, password) => {
@@ -26,7 +28,7 @@ function RegForm() {
         </div>
         <div className="regform__surname">
             <p className="regform__surname-title">Имя пользователя</p>
-            <input className="regform__surname-input" type="text" placeholder='user' value={surname} onChange={(event) => setSurname(event.target.value)}/>
+            <input className="regform__surname-input" type="text" placeholder='' value={surname} onChange={(event) => setSurname(event.target.value)}/>
         </div>
         <div className="regform__login">
             <p className="regform__login-title">Email</p>
@@ -34,20 +36,18 @@ function RegForm() {
         </div>
         <div className="regform__password">
             <p className="regform__login-title">Пароль</p>
-            <input className="regform__login-input" type="password" placeholder='**********' value={password} onChange={(event) => setPassword(event.target.value)}/>
+            {showPass ?
+                <input className="regform__login-input" type="password" placeholder='**********' value={password} onChange={(event) => setPassword(event.target.value)}/>
+                :
+                <input className="regform__login-input" type="text" placeholder='**********' value={password} onChange={(event) => setPassword(event.target.value)}/>
+            }
+            {showPass ?
+                <p className="regform__login-help" onClick={() => setShowPass(!showPass)}>Показать</p>
+                :
+                <p className="regform__login-help" onClick={() => setShowPass(!showPass)}>Скрыть</p>
+            }
         </div>
-        {/* <div className="regform__mail">
-            <p className="regform__mail-title">Почта</p>
-            <input className="regform__mail-input" type="text" placeholder='example@mail.ru' value={email} onChange={(event) => setEmail(event.target.value)}/>
-        </div> */}
-        {/* <div className="regform__check">
-            <input className="regform__check-input" type="checkbox" placeholder='**********'/>
-            <p className="regform__check-title">Показывать почту на сайте</p>
-            
-        </div> */}
-        {/* <Link to='/transits'>
-            
-        </Link> */}
+
         <button className="regform__enter" onClick={() => registrationSend(name, surname, email, password)}>
             Зарегистрироваться
         </button>

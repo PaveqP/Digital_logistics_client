@@ -11,10 +11,12 @@ import { OpenBurger } from '../../ui/burger/OpenBurger'
 import { Link } from 'react-router-dom'
 
 import './Analytics_title.scss'
+import { useSelector } from 'react-redux'
 
-function Analytics_title({adaptive, setAdaptive, companies, career, setCareer, period, setPeriod, company, setCompany, handleCareerChange, handlePeriodChange, handleCompanyChange}) {
+function Analytics_title({adaptive, setAdaptive, companies,  period, handlePeriodChange}) {
 
     console.log(companies)
+    const user = useSelector(state => state.user.currentUser)
 
   return (
     <div className="analyticstitle">
@@ -26,15 +28,8 @@ function Analytics_title({adaptive, setAdaptive, companies, career, setCareer, p
                     companies={companies}
                     adaptive={adaptive} 
                     setAdaptive={setAdaptive} 
-                    career={career} 
-                    setCareer={setCareer} 
                     period={period} 
-                    setPeriod={setPeriod} 
-                    company={company} 
-                    setCompany={setCompany} 
-                    handleCareerChange={handleCareerChange}
                     handlePeriodChange={handlePeriodChange}
-                    handleCompanyChange={handleCompanyChange}
                 />
             </section>
 
@@ -56,11 +51,12 @@ function Analytics_title({adaptive, setAdaptive, companies, career, setCareer, p
                     <section className="analyticstitle__cabinet">
                         <section className="analyticstitle__row-burger">
                             <div className="analyticstitle__row-avatar">
-                                <img src={require('../../ui/images/avatar.png')} alt="#" />
+                                <img src={require('../../ui/images/user.png')} alt="#" />
                             </div>
                             <article className="analyticstitle__row-info">
                                 <div className="analyticstitle__row-info-base">
-                                    <p className="analyticstitle__row-info-base-text"> Анастасия Великая </p>
+                                    
+                                    <p className="analyticstitle__row-info-base-text"> {user.name} {user.surname} </p>
                                     <div className="analyticstitle__row-info-base-images">
                                         <img className="analyticstitle__row-info-base-images-default" src={require('../../ui/images/Profile_button.png')} alt="#" />
                                         <img className="analyticstitle__row-info-base-images-hover" src={require('../../ui/images/Profile_button_hover.png')} alt="#" />
@@ -89,7 +85,13 @@ function Analytics_title({adaptive, setAdaptive, companies, career, setCareer, p
 
             <BigExcelExport className="analyticstitle__row-adaptive-export"/>
 
-            <Analytics_filter className="analyticstitle__row-adaptive-export" companies={companies}/>
+            <Analytics_filter className="analyticstitle__row-adaptive-export" 
+                companies={companies}
+                adaptive={adaptive} 
+                setAdaptive={setAdaptive} 
+                period={period} 
+                handlePeriodChange={handlePeriodChange}
+            />
         </section>
     </div>
   )

@@ -9,12 +9,11 @@ function AddRouteForm() {
 
   const [number, setNumber] = useState('')
   const [exitDate, setExitDate] = useState('')
-  const [exitTime, setExitTime] = useState('')
   const [enterDate, setEnterDate] = useState('')
-  const [enterTime, setEnterTime] = useState('')
   const [exitCity, setExitCity] = useState('')
   const [weight, setWeight] = useState('')
   const [volume, setVolume] = useState('')
+  const [duration, setDuration] = useState('')
   const [enterCity, setEnterCity] = useState('')
 
   const [open, setOpen] = useState(false)
@@ -22,7 +21,7 @@ function AddRouteForm() {
   const token = useSelector(state => state.user.token)
 
   const sendRouteData = () => {
-    addRoute(number, exitDate, enterDate, exitCity, enterCity, token)
+    addRoute(number, exitDate, enterDate, exitCity, enterCity, weight, volume, duration, token).then(setOpen(!open))
     //getRoutes(token)
   }
 
@@ -43,19 +42,16 @@ function AddRouteForm() {
                 <p>Дата выезда</p>
                 <input type="text" className='addroute__form-form-input' placeholder='20.05.2023' value={exitDate} onChange={e => setExitDate(e.target.value)}/>
 
-                <p>Время выезда</p>
-                <input type="text" className='addroute__form-form-input' placeholder='10:31' value={exitTime} onChange={e => setExitTime(e.target.value)}/>
-
                 <p>Дата прибытия</p>
                 <input type="text" className='addroute__form-form-input' placeholder='28.05.2023' value={enterDate} onChange={e => setEnterDate(e.target.value)}/>
 
-                <p>Время прибытия</p>
-                <input type="text" className='addroute__form-form-input' placeholder='10:31' value={enterTime} onChange={e => setEnterTime(e.target.value)}/>
+                <p>Длительность поездки, ч</p>
+                <input type="text" className='addroute__form-form-input' placeholder='10' value={duration} onChange={e => setDuration(e.target.value)}/>
 
-                <p>Вес груза</p>
+                <p>Вес груза, кг</p>
                 <input type="text" className='addroute__form-form-input' value={weight} onChange={e => setWeight(e.target.value)}/>
 
-                <p>Объём груза</p>
+                <p>Объём груза, м3</p>
                 <input type="text" className='addroute__form-form-input' value={volume} onChange={e => setVolume(e.target.value)}/>
 
                 <p>Город отправления</p>

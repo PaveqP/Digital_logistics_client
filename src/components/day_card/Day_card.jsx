@@ -33,171 +33,32 @@ function Day_card({count, companies, period, company}) {
   };
 
   let data = {
-    labels: ['today', 'yesterday'],
+    labels: companies.map(elem => elem.number),
     datasets: [
       {
         label: '# of Votes',
-        data: [85, 15],
+        data: companies.map(elem => elem.volume),
         backgroundColor: [
           'rgba(255, 180, 84, 1.0)',
           'rgba(54, 162, 235, 0.2)',
+          'rgba(543, 32, 235, 0.2)',
+          'rgba(23, 43, 235, 0.2)',
         ],
         borderColor: [
           'rgba(255, 180, 84, 1.0)',
           'rgba(54, 162, 235, 1)',
+          'rgba(543, 32, 235, 0.2)',
+          'rgba(23, 43, 235, 0.2)',
         ],
         borderWidth: 1,
       },
     ],
   };
-  if (company === 'default'){
-    if (period === 'today') {
-      data = {
-        labels: ['today', 'yesterday'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: [35, 65],
-            backgroundColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
-    }
-    if (period === 'week') {
-      data = {
-        labels: ['today', 'yesterday'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: [88, 12],
-            backgroundColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
-    }
-    if (period === 'month') {
-      data = {
-        labels: ['today', 'yesterday'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: [92, 8],
-            backgroundColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
-    }
-  } else{
-    if (period === 'today') {
-      data = {
-        labels: ['today', 'yesterday'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: companies[company - 1].totalDay,
-            backgroundColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
-    }
-    if (period === 'week') {
-      data = {
-        labels: ['today', 'yesterday'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: companies[company - 1].totalDay,
-            backgroundColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
-    }
-    if (period === 'month') {
-      data = {
-        labels: ['today', 'yesterday'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: companies[company - 1].totalDay,
-            backgroundColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
-    }
-    if (period === 'default') {
-      data = {
-        labels: ['today', 'yesterday'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: companies[company - 1].totalDay,
-            backgroundColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 180, 84, 1.0)',
-              'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
-    }
-  }
     
   return (
     <div className="daycard">
         <p className="daycard__row-title">
-            Среднее количество рейсов машины в сутки
+            Соотношение вывезенных объёмов по перевозкам
         </p>
         <p className="daycard__count">
             {company === 'default' &&
@@ -236,10 +97,6 @@ function Day_card({count, companies, period, company}) {
               <p className="daycard__count">{'2,2'}%</p>
             }
         </p>
-        <a className="daycard__plan-title">
-            по сравнению 
-            <p>со вчерашним днем</p>
-        </a>
         <div className="daycard__chart">
           <Pie data={data} options={options}/>
         </div>

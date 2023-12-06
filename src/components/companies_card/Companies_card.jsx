@@ -1,87 +1,47 @@
 import React from 'react'
 
 import './Companies_card.scss'
+import { useSelector } from 'react-redux'
 
 function Companies_card({companies, career, company, period}) {
+
+
   return (
     <div className="companiescard">
         <div className="companiescard__row">
             <div className="companiescard__row-company">
-                <p className="companiescard__row-company-title">Подрядчик</p>
+                <p className="companiescard__row-company-title">Перевозка</p>
                 {
                     companies.map((company) => (
-                        <p className="companiescard__row-company-name" key={company.id} style={{color: company.color}}>{company.name}</p>
+                        <p className="companiescard__row-company-name" key={company.id} style={{color: company.color}}>{company.id}: {company.number}</p>
                     ))
                 }  
             </div>
             <div className="companiescard__row-transits">
-                <p className="companiescard__row-transits-title">Количество машинорейсов</p>
-                {period === 'today' &&
+                <p className="companiescard__row-transits-title">Вывезено (м3)</p>
+                {
                     companies.map((company) => (
-                        <p className="companiescard__row-transits-name" key={company.id}>{company.today}</p>
-                    ))
-                }  
-                {period === 'week' &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-transits-name" key={company.id}>{company.week}</p>
-                    ))
-                }  
-                {period === 'month' &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-transits-name" key={company.id}>{company.month}</p>
-                    ))
-                }  
-                {(period === 'all' || period === 'default') &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-transits-name" key={company.id}>{company.transits}</p>
+                        <p className="companiescard__row-transits-name" key={company.id}>{company.volume}</p>
                     ))
                 }  
             </div>
             <div className="companiescard__row-exported">
-                <p className="companiescard__row-exported-title">Вывезено (тонн)</p>
-                {period === 'today' &&
+                <p className="companiescard__row-exported-title">Вывезено (кг)</p>
+                {
                     companies.map((company) => (
-                        <p className="companiescard__row-exported-name" key={company.id}>{company.todayExported}</p>
+                        <p className="companiescard__row-exported-name" key={company.id}>{company.weight}</p>
                     ))
                 }  
-                {period === 'week' &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-exported-name" key={company.id}>{company.weekExported}</p>
-                    ))
-                }  
-                {period === 'month' &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-exported-name" key={company.id}>{company.monthExported}</p>
-                    ))
-                }  
-                {(period === 'all' || period === 'default') &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-exported-name" key={company.id}>{company.exported}</p>
-                    ))
-                }  
+                 
             </div>
             <div className="companiescard__row-day">
-                <p className="companiescard__row-day-title">Среднее кол-во рейсов</p>
-                {period === 'today' &&
+                <p className="companiescard__row-day-title">Длительность</p>
+                {
                     companies.map((company) => (
-                        <p className="companiescard__row-day-name" key={company.id}>{company.todayDay}</p>
+                        <p className="companiescard__row-day-name" key={company.id}>{company.duration}</p>
                     ))
                 }  
-                {period === 'week' &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-day-name" key={company.id}>{company.weekDay}</p>
-                    ))
-                }  
-                {period === 'month' &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-day-name" key={company.id}>{company.monthDay}</p>
-                    ))
-                }  
-                {(period === 'all' || period === 'default') &&
-                    companies.map((company) => (
-                        <p className="companiescard__row-day-name" key={company.id}>{company.day}</p>
-                    ))
-                }  
+            
             </div>
         </div>
     </div>

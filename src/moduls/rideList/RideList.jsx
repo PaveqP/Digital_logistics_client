@@ -3,10 +3,10 @@ import { Cabinet } from '../../components/cabinet/Cabinet'
 import { RideList_title } from '../../components/rideList_title/RideList_title'
 import { RideList_sctruct } from '../../components/rideList_structure/RideList_sctruct'
 import { RideList_list } from '../../components/rideList_list/RideList_list'
-import { GetRideData } from '../../requests/GetRideData'
 import { getRoutes } from '../../responses/RoutesResponses'
 import axios from 'axios'
 import { store } from '../../store'
+import { Loader } from '../../components/loader/Loader'
 
 import './RideList.scss'
 import { useSelector } from 'react-redux'
@@ -31,12 +31,7 @@ function RideList({adaptive, setAdaptive}) {
       photo: true
   })
 
-//console.log(timeInterval)
-
-const token = useSelector(state => state.user.token)
 const routes = useSelector(state => state.route.routes)
-
-//console.log(routes)
 
   useEffect(() => {
     const data = store.getState().route.routes
@@ -44,19 +39,6 @@ const routes = useSelector(state => state.route.routes)
     setRideData(data)
  }, [routes])
  
-// const getRoutes = async (token) => {
-//   try {
-//       const response = await axios.get('http://localhost:8080/api/routes', 
-//       {
-//           headers: {Authorization: `Bearer ${token}`}
-//       })
-//       setRideData(response.data)
-//   } catch (error) {
-//       alert(error.response.data.message)
-//   }
-// }
-
- //console.log(rideData)
 
   return (
     <div className="ridelist">
@@ -67,7 +49,7 @@ const routes = useSelector(state => state.route.routes)
         rideData.length > 0 ? 
         <RideList_list timeInterval={timeInterval} setTimeInterval={setTimeInterval} rideData={rideData} showConfig={showConfig} loading={loading} setAdaptive={setAdaptive}/> 
         : 
-        <h1>Loading data</h1>
+        <Loader/>
       }
       
     </div>

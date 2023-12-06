@@ -1,0 +1,89 @@
+@import '../../styles/variables.scss';
+
+.edit{
+    background-color: $background;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.edit:hover{
+    background-color: white;
+    border: 2px solid $background;
+}
+
+.delete{
+    background-color: $background;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    width: 90px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-top: 12px;
+}
+
+.delete:hover{
+    background-color: white;
+    border: 2px solid $background;
+}
+
+.edit__form{
+    position: absolute;
+    cursor: default;
+    left: 44%;
+    top: 12%;
+    background-color: $background;
+    padding: 30px 50px;
+    border-radius: 20px;
+}
+
+.form__row{
+    display: flex;
+    flex-direction: column;
+    font-family: $font;
+}
+
+.row__form-title{
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: $font;
+}
+
+.row__form-separator{
+    width: 100%;
+    height: 5px;
+    background-color: $blue-color;
+    margin-bottom: 30px;
+}
+
+.row__form-input{
+    margin-bottom: 15px;
+    font-family: $font;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.row__form-send{
+    margin-top: 15px;
+    font-family: $font;
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: $blue-color;
+    border-radius: 10px;
+    color: white;
+}
+
+.row__form-send:hover{
+    background-color: $blue-color;
+    color: $hover-color;
+}

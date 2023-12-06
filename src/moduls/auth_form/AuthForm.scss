@@ -8,25 +8,28 @@
 
 .authform__login{
     display: flex;
-    align-items: center;
-    margin-left: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    
 
     &-title{
         font-family: $font;
         font-size: 16px;
         color: $primary-color;
         margin-right: 10px;
+        margin-bottom: 5px;
     }
 
     &-input{
-        margin-left: 20px;
         width: 220px;
         font-family: $font;
         font-size: 16px;
         padding: 4px 10px 6px 10px;
         line-height: 20px;
-        background-color: rgba($color: $background, $alpha: 0.2);
-        color: $background;
+        background-color: rgba($color: $background, $alpha: 0.3);
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15) inset;
+        border-radius: 10px;
+        color: black;
         margin-bottom: 10px;
     }
 
@@ -34,18 +37,21 @@
         font-family: $font;
         font-size: 16px;
         color: $blue-color;
-        margin-left: 10px;
+        align-self: flex-end;
+        cursor: pointer;
     }
 }
 
 .authform__password{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
 
     &-title{
         font-family: $font;
         font-size: 16px;
         color: $primary-color;
+        margin-bottom: 5px;
     }
 
     &-input{
@@ -55,17 +61,19 @@
         font-size: 16px;
         padding: 4px 10px 6px 10px;
         line-height: 20px;
-        background-color: rgba($color: $background, $alpha: 0.2);
-        color: $background;
+        background-color: rgba($color: $background, $alpha: 0.3);
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15) inset;
+        border-radius: 10px;
+        color: black;
     }
 
     
 }
 
 .authform__enter{
-    margin-top: 10px;
+    margin-top: 70px;
     margin-bottom: 70px;
-    margin-left: 90px;
+    
     height: 30px;
     width: 220px;
     color: white;
@@ -104,8 +112,9 @@
         font-size: 16px;
         padding: 4px 10px 6px 10px;
         line-height: 20px;
-        background-color: rgba($color: $background, $alpha: 0.2);
-        color: $background;
+        background-color: rgba($color: $background, $alpha: 0.3);
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15) inset;
+        color: black;
         border-radius: 10px;
         margin-bottom: 10px;
         
@@ -139,8 +148,9 @@
         font-size: 16px;
         padding: 4px 10px 6px 10px;
         line-height: 20px;
-        background-color: rgba($color: $background, $alpha: 0.2);
-        color: $background;
+        background-color: rgba($color: $background, $alpha: 0.3);
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15) inset;
+        color: black;
         border-radius: 10px;
         margin-bottom: 10px;
     }
@@ -155,7 +165,6 @@
 
 .regform__login{
     display: flex;
-    align-items: center;
     flex-direction: column;
     align-items: flex-start;
 
@@ -173,8 +182,9 @@
         font-size: 16px;
         padding: 4px 10px 6px 10px;
         line-height: 20px;
-        background-color: rgba($color: $background, $alpha: 0.2);
-        color: $background;
+        background-color: rgba($color: $background, $alpha: 0.3);
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15) inset;
+        color: black;
         border-radius: 10px;
         margin-bottom: 10px;
     }
@@ -183,7 +193,8 @@
         font-family: $font;
         font-size: 16px;
         color: $blue-color;
-        margin-left: 10px;
+        align-self: flex-end;
+        cursor: pointer;
     }
 }
 
@@ -206,9 +217,10 @@
         font-size: 16px;
         padding: 4px 10px 6px 10px;
         line-height: 20px;
-        background-color: rgba($color: $background, $alpha: 0.2);
+        background-color: rgba($color: $background, $alpha: 0.3);
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15) inset;
         border-radius: 10px;
-        color: $background;
+        color: black;
     }
 }
 
@@ -230,8 +242,9 @@
         font-size: 16px;
         padding: 4px 10px 6px 10px;
         line-height: 20px;
-        background-color: rgba($color: $background, $alpha: 0.2);
-        color: $background;
+        background-color: rgba($color: $background, $alpha: 0.3);
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15) inset;
+        color: black;
     }
 }
 
@@ -253,7 +266,7 @@
 }
 
 .regform__enter{
-    margin-top: 16px;
+    margin-top: 70px;
     margin-bottom: 70px;
     
     height: 30px;

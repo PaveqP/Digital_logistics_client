@@ -28,40 +28,77 @@ function RideList_list(props) {
 	let Today = new Date()
 	let day = String(Today.getDate())
 	let month = String(Today.getMonth() + 1).padStart(2, '0')
-	let year = String(Today.getFullYear()).slice(2,4)
+	let year = String(Today.getFullYear()).slice(0,4)
+
+	if (day.length === 1){
+		day = '0' + day
+	}
+
+	console.log(`${day}.${month}.${year}`)
+
+	const monthes = {
+		'ddee': 31, 
+		'2': 28, 
+		'3': 31, 
+		'4': 30, 
+		'5': 31,
+		'6': 30,
+		'7': 31,
+		'8': 31,
+		'9': 30,
+		'10': 31,
+		'nov': 30,
+		'12': 31
+	}
+
+	let prevMonth = String(Number(month) - 1)
 
 	useEffect(() => {
 
 		switch(timeInterval) {
 			case 'today':  
-				let filteredData = rideData.filter((elem) => (elem.Exit_date === `${day}.${month}.${year}`))
+				setData(rideData)
+				let filteredData = rideData.filter((elem) => (elem.exit_date === `${day}.${month}.${year}`))
 				setData(filteredData)
+				console.log(`${day}.${month}.${year}`)
 				console.log('done')
 				console.log(rideData, 'after today')
 				break
 		  
 			case 'week':  
+				setData([])
+				console.log(Number(`01`))
 				let weekData = rideData.filter((elem) => 
-					( 
-					Number(`${day}`) - Number(elem.Exit_date.slice(0,2)) <= 7 
-					&& Number(`${day}`) - Number(elem.Exit_date.slice(0,2)) >= 0
-					) 
-					&& elem.Exit_date.slice(3,8) === `${month}.${year}`
+					(
+						((Number(`${day}`) - Number(elem.exit_date.slice(0,2)) <= 7 && 
+						Number(`${day}`) - Number(elem.exit_date.slice(0,2)) >= 0) && 
+						(elem.exit_date.slice(3,10) === `${month}.${year}`))
+					|| 
+						(
+							(((30 + Number(`${day}`)) - Number(elem.exit_date.slice(0,2))) <= 7) && 
+							((elem.exit_date.slice(3,10) === `${'0' + String(Number(month) - 1)}.${year}`) || 
+							(elem.exit_date.slice(3,10) === `${String(Number(month) - 1)}.${year}`))
+						)
+					)
 				)
-				weekData.length > 2 ? setData(weekData) : console.log(weekData)
+				weekData.length > 0 ? setData(weekData) : console.log(weekData)
 				console.log('done')
 				console.log(rideData, 'after done')
 				break
 
 			case 'month':  
-			setData(rideData)
+				setData(rideData)
 				let monthData = rideData.filter((elem) => 
 				( 
-					(Number(`${day}`) - Number(elem.Exit_date.slice(0,2)) >= 0 && elem.Exit_date.slice(3,8) === `${month}.${year}`)
-					||
-					(Number(elem.Exit_date.slice(0,2) >= Number(`${day}`) && Number(elem.Exit_date.slice(0,2) <= 31))) && (elem.Exit_date.slice(3,8) === `${'0' + String(Number(month) - 1)}.${year}`)
-				) 
-				)
+					(Number(`${day}`) - Number(elem.exit_date.slice(0,2)) >= 0 && elem.exit_date.slice(3,10) === `${month}.${year}`)
+
+					|| 
+					(
+						(((30 + Number(`${day}`)) - Number(elem.exit_date.slice(0,2))) <= 30) && 
+						((elem.exit_date.slice(3,10) === `${'0' + String(Number(month) - 1)}.${year}`) || 
+						(elem.exit_date.slice(3,10) === `${String(Number(month) - 1)}.${year}`))
+					)
+				))
 				setData(monthData)
 				console.log('done')
 				console.log(rideData, 'after done')
@@ -71,7 +108,7 @@ function RideList_list(props) {
 				setData(rideData)
 		}
 
-	  })
+	  }, [timeInterval, rideData])
 
 	return (
 		<div className='ridelistlist' onClick={() => setAdaptive(false)}>
@@ -86,12 +123,13 @@ function RideList_list(props) {
 					exit_time={elem.Exit_time}
 					duration={elem.duration}
 					weight={elem.weight}
-					volume={elem.number}
+					volume={elem.volume}
 					road={elem.road}
-					photo={elem.link_to_photo}
 					loading={loading}
 					showConfig={showConfig}
-					volume_count={elem.volume_count}
+					exit_city={elem.exit_city}
+					enter_city={elem.enter_city}
+					volume_count={elem.volume}
 				/>
 			))}
 			<Paginator
